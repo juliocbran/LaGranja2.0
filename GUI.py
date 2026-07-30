@@ -11,13 +11,12 @@ lotes_registrados = []
 #================================================================   
 #================================================================   
 def calcular_total_inventario(lista_lotes):
-
-
     if not lista_lotes:
         return 0.0
     # Caso recursivo: subtotal del primer lote + total del resto
     costo_actual = lista_lotes[0]["cantidad"] * lista_lotes[0]["precio"]
     return costo_actual + calcular_total_inventario(lista_lotes[1:])
+
 
 def contar_cubetas_por_tipo(lista_lotes, tipo_objetivo):
     if not lista_lotes:
@@ -115,6 +114,7 @@ def ejecutar_conteo_por_tipo():
 
 def filtrar_tabla_refrigerados():
     # Llama a la función recursiva requerida en la guía
+    global lotes_registrados
     lotes_filtrados = filtrar_refrigerados(lotes_registrados)
     actualizar_tabla(lotes_filtrados)
 
@@ -174,7 +174,7 @@ estilo_input= {
 #ESTE ES EL CUADRO EN EL QUE ESTAN LOS INPUTS Y BOTONES PARA INGRESAR LA INFO
 frame_Par = tk.LabelFrame(
     window,bg=color_fondo
-,fg=color_texto,text="LA GRANJA DON JULIO",
+,fg=color_texto,text="LA GRANJA",
     font=("Impact ", 15, "bold"),  #negrilla y letra
     bd=2, #grosor del contorno
     relief="solid" # TIPO DE CONTORNO
@@ -186,7 +186,7 @@ frame_Formulario = tk.Frame(frame_Par, bg=color_fondo)
 frame_Formulario.pack(side="left", fill="both", expand=True, padx=10)
 
 frame_Logo = tk.Frame(frame_Par, bg=color_fondo)
-frame_Logo.pack(side="right", padx=10, pady=5)
+frame_Logo.pack(side="right",fill="both", padx=10, pady=5)
 #===============================================================
 #===============================================================
 imagen = Image.open("logo.png")
@@ -232,7 +232,7 @@ tk.Label(
     **estilo_texto,
     
 ).grid(row=2, column=0, sticky="w", padx=10, pady=25)
-
+#PRECIO UNITARIO
 PU=tk.Entry(
     frame_Formulario,
     **estilo_input,
@@ -275,6 +275,7 @@ style.map("Custom.TCombobox",
 )],
     foreground=[('readonly', "#F5F5DC")]
 )
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++
 opcion_seleccionada = tk.StringVar()
 combo = ttk.Combobox(
     frame_Formulario,
@@ -287,8 +288,6 @@ combo = ttk.Combobox(
 )
 combo.current(0)
 combo.grid(row=0,column=1,padx=10, pady=10)
-
-
 
 
 
@@ -391,7 +390,7 @@ tabla.heading("precio", text="Precio Unitario ($)")
 tabla.heading("subtotal", text="Subtotal ($)")
 tabla.heading("refrigeracion", text="Refrigeración Especial")
 
-tabla.column("tipo", anchor="center", width=120)
+tabla.column("tipo", anchor="center",width=100)
 tabla.column("cantidad", anchor="center", width=100)
 tabla.column("precio", anchor="center", width=120)
 tabla.column("subtotal", anchor="center", width=120)
