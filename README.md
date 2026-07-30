@@ -19,7 +19,9 @@ esta implementada con **funciones recursivas**, sin usar ciclos `for`/`while`.
 
 ```
 
-gui.py        -> punto de entrada, arranca la aplicacion, interfaz grafica en Tkinter (formulario, tabla, resultados) nucleo de logica recursiva (calculo de totales, conteos, filtros)
+gui.py        ->  punto de entrada, arranca la aplicacion, 
+                  interfaz grafica en Tkinter (formulario, tabla, resultados) 
+                  nucleo de logica recursiva (calculo de totales, conteos, filtros)
 
 README.md     -> este archivo
 
@@ -53,7 +55,7 @@ Se abrira la ventana de la aplicacion.
    de la tabla.
 7. **Limpiar Campos** vacia el formulario para un nuevo registro.
 
-## Funciones recursivas (logica.py)
+## Funciones recursivas (GUI.py)
 
 | Funcion | Caso base | Caso recursivo |
 |---|---|---|
@@ -64,6 +66,6 @@ Se abrira la ventana de la aplicacion.
 Ademas se incluye `contar_lotes(lista_lotes)` como funcion auxiliar recursiva
 para contar el total de lotes registrados.
 
-No se utiliza ningun ciclo `for`/`while` dentro de `logica.py`. Incluso el
+No se utiliza ningun ciclo `for`/`while` dentro de `GUI.py`. Incluso el
 llenado y limpieza de la tabla (Treeview) en `gui.py` se hace con funciones
 auxiliares recursivas (`_poblar_treeview`, `_limpiar_treeview`).
