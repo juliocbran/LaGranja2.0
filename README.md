@@ -1,7 +1,7 @@
 # Distribuidora de Huevos y Lacteos 'La Granja'
 
 Sistema de gestion de recepcion, inventario y control de calidad.
-Proyecto de Programacion Imperativa — Guia #01 (Python 3 + Tkinter).
+Proyecto de Programacion Imperativa — Guia #01 (Python 3.9 + Tkinter).
 
 **Integrantes:**
 - Harry Ospina Mazo
@@ -18,23 +18,24 @@ esta implementada con **funciones recursivas**, sin usar ciclos `for`/`while`.
 ## Estructura del proyecto
 
 ```
-proyecto.py   -> punto de entrada, arranca la aplicacion
-gui.py        -> interfaz grafica en Tkinter (formulario, tabla, resultados)
-logica.py     -> nucleo de logica recursiva (calculo de totales, conteos, filtros)
+
+gui.py        -> punto de entrada, arranca la aplicacion, interfaz grafica en Tkinter (formulario, tabla, resultados) nucleo de logica recursiva (calculo de totales, conteos, filtros)
+
 README.md     -> este archivo
+
 ```
 
 ## Requisitos
 
 - Python 3.9 o superior (incluye Tkinter en la instalacion estandar).
-- No se requieren dependencias externas.
+- Se requiere descargas comando (python -m pip install Pillow)
 
 ## Como ejecutar
 
 Desde la carpeta del proyecto:
 
 ```bash
-python proyecto.py
+python gui.py
 ```
 
 Se abrira la ventana de la aplicacion.
