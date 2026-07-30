@@ -1,4 +1,4 @@
-# Distribuidora de Huevos y Lacteos 'La Granja'
+# Distribuidora de Huevos y Lacteos `La Granja`
 
 Sistema de gestion de recepcion, inventario y control de calidad.
 Proyecto de Programacion Imperativa — Guia #01 (Python 3.9 + Tkinter).
@@ -37,19 +37,18 @@ README.md     -> este archivo
 Desde la carpeta del proyecto:
 
 ```bash
-python gui.py
+python GUI.py
 ```
 
 Se abrira la ventana de la aplicacion.
 
 ## Uso rapido
 
-1. Completa **Tipo/Categoria**, **Cantidad** y **Precio unitario**.
-2. Marca **Requiere Refrigeracion Especial** si aplica.
+1. Completa **Tipo/Categoria**, **Precio unitario** y **Cantidad**.
+2. Marca **Refrigeracion Especial** si  el producto aplica.
 3. Presiona **Registrar Lote** para agregarlo a la tabla.
-4. Presiona **Calcular Totales** para ver el valor total del inventario, la
-   cantidad de lotes registrados y cuantos requieren refrigeracion.
-5. Usa el campo **Consultar cubetas por tipo** para saber cuantas unidades
+4. Presiona **Calcular Totales** para ver el valor total del inventario.
+5. Usa el campo **Tipo/Categoria** y presiona en **Contar por tipo**para saber cuantas unidades
    hay registradas de un tipo especifico (ej. "Tipo AA").
 6. Usa **Ver Solo Refrigerados** / **Ver Todos** para alternar el filtro
    de la tabla.
