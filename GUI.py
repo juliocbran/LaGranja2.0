@@ -39,16 +39,7 @@ def filtrar_refrigerados(lista_lotes):
 #================================================================   
 #================================================================   
 #================================================================   
-def actualizar_tabla(lista):
-    # Limpiar filas existentes con un ciclo for común
-    for item in tabla.get_children():
-        tabla.delete(item)
-    
-    # Insertar los lotes en la tabla
-    for lote in lista:
-        subtotal = lote["cantidad"] * lote["precio"]
-        refri_txt = "Sí" if lote["refrigeracion"] else "No"
-        tabla.insert("", "end", values=(lote["tipo"], lote["cantidad"], f"${lote['precio']:.2f}", f"${subtotal:.2f}", refri_txt))
+
 
 
 def limpiar_campos():
