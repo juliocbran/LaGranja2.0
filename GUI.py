@@ -400,36 +400,33 @@ tabla.pack(fill="both", expand=True)
 #hay que hace rla cuestion de actualizar lista y eso
 
 def actualizar_tabla(lista):
-    # PASO 1: Obtener todas las filas viejas que están dibujadas en la tabla
-    filas_actuales = tabla.get_children()
-    
-    # PASO 2: Borrar fila por fila usando un ciclo imperativo tradicional
-    i = 0
-    while i < len(filas_actuales):
-        fila_id = filas_actuales[i]
-        tabla.delete(fila_id)  # Borra la fila de la pantalla
-        i = i + 1
+    filas_actuales = list(tabla.get_children())
 
-    # PASO 3: Insertar los datos nuevos uno por uno
-    for lote in lista:
-        # Extraemos los datos de nuestro diccionario de forma directa
+    def borrar_filas_recursivo(filas):
+        if not filas:
+            return
+        tabla.delete(filas[0])
+        borrar_filas_recursivo(filas[1:])
+
+    def insertar_lotes_recursivo(lotes):
+        if not lotes:
+            return
+
+        lote = lotes[0]
         tipo_prod = lote["tipo"]
         cant_prod = lote["cantidad"]
         prec_prod = lote["precio"]
-        
-        # Calculamos el subtotal
+
         subtotal_prod = cant_prod * prec_prod
-        
-        # Convertimos el True/False a un texto sencillo con un 'if' clásico
-        if lote["refrigeracion"] == True:
-            texto_refri = "Sí"
-        else:
-            texto_refri = "No"
 
-        # Preparamos la tupla de datos
+        texto_refri = "Sí" if lote["refrigeracion"] else "No"
+
         datos_fila = (tipo_prod, cant_prod, f"${prec_prod:.2f}", f"${subtotal_prod:.2f}", texto_refri)
-
-        # Insertamos la fila en la tabla
         tabla.insert("", "end", values=datos_fila)
+
+        insertar_lotes_recursivo(lotes[1:])
+
+    borrar_filas_recursivo(filas_actuales)
+    insertar_lotes_recursivo(lista)
 
 window.mainloop()
